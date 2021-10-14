@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.online.repair.builder.DeviceBuilder;
 import com.online.repair.model.Device;
 import com.online.repair.service.DeviceRepairFactory;
 
@@ -13,6 +14,7 @@ public class OnlineRepairApplication {
 
 		List<Device> devices = getDevicesForRepair();
 
+		
 		for (Device device : devices) {
 			System.out.println(device);
 		}
@@ -23,19 +25,31 @@ public class OnlineRepairApplication {
 
 		List<Device> devices = new ArrayList<>();
 
-		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair("MOBILE", "MOBILE_SCREEN_REPAIR", "Test1", "TX",
-				new Date(), new Date()));
-		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair("MOBILE", "MOBILE_AUDIO_REPAIR", "Test1", "TX",
-				new Date(), new Date()));
-		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair("MOBILE", "MOBILE_CAMERA_REPAIR", "Test1", "TX",
-				new Date(), new Date()));
+		DeviceBuilder builder = new DeviceBuilder();
 
-		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair("TV", "TV_SPEAKER_REPAIR", "Test1", "TX", new Date(),
-				new Date()));
-		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair("TV", "TV_DISPLAY_REPAIR", "Test1", "TX", new Date(),
-				new Date()));
-		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair("TV", "TV_MOTHERBOARD_REPAIR", "Test1", "TX",
-				new Date(), new Date()));
+		builder = builder.addDevice("MOBILE").addRepairType("MOBILE_SCREEN_REPAIR").addCustomerName("Test1")
+				.addContactDetails("TX").addTransactionDate(new Date()).addEstimatedDeliveryDate(new Date());
+		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair(builder));
+
+		builder = builder.addDevice("MOBILE").addRepairType("MOBILE_AUDIO_REPAIR").addCustomerName("Test1")
+				.addContactDetails("TX").addTransactionDate(new Date()).addEstimatedDeliveryDate(new Date());
+		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair(builder));
+
+		builder = builder.addDevice("MOBILE").addRepairType("MOBILE_CAMERA_REPAIR").addCustomerName("Test1")
+				.addContactDetails("TX").addTransactionDate(new Date()).addEstimatedDeliveryDate(new Date());
+		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair(builder));
+
+		builder = builder.addDevice("TV").addRepairType("TV_SPEAKER_REPAIR").addCustomerName("Test1")
+				.addContactDetails("TX").addTransactionDate(new Date()).addEstimatedDeliveryDate(new Date());
+		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair(builder));
+
+		builder = builder.addDevice("TV").addRepairType("TV_DISPLAY_REPAIR").addCustomerName("Test1")
+				.addContactDetails("TX").addTransactionDate(new Date()).addEstimatedDeliveryDate(new Date());
+		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair(builder));
+
+		builder = builder.addDevice("TV").addRepairType("TV_MOTHERBOARD_REPAIR").addCustomerName("Test1")
+				.addContactDetails("TX").addTransactionDate(new Date()).addEstimatedDeliveryDate(new Date());
+		devices.add(DeviceRepairFactory.getDeviceInstanceForRepair(builder));
 
 		return devices;
 	}
