@@ -1,13 +1,11 @@
 package com.online.repair.model.tv;
 
-import java.util.Date;
+import com.online.repair.builder.DeviceBuilder;
 
 public class TVMotherboardRepair extends TVRepair {
 
-	public TVMotherboardRepair(String customerName, String contactDetails, Date transactionDate,
-			Date estimatedDeliveryDate) {
-		super(customerName, contactDetails, transactionDate, estimatedDeliveryDate);
-		this.repairType = "TV_MOTHERBOARD_REPAIR";
+	public TVMotherboardRepair(DeviceBuilder builder) {
+		super(builder);
 
 	}
 

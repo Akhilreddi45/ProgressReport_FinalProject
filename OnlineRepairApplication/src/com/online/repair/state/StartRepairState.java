@@ -27,4 +27,13 @@ public class StartRepairState implements RepairState {
 		System.out.println("Device repair is not started yet");
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("StartRepairState");
+		return builder.toString();
+	}
+	
+	
+
 }

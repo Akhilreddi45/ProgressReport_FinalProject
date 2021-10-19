@@ -1,12 +1,10 @@
 package com.online.repair.model.mobile;
 
-import java.util.Date;
+import com.online.repair.builder.DeviceBuilder;
 
 public class MobileScreenReplacement extends MobileRepair {
 
-	public MobileScreenReplacement(String customerName, String contactDetails, Date transactionDate,
-			Date estimatedDeliveryDate) {
-		super(customerName, contactDetails, transactionDate, estimatedDeliveryDate);
-		this.repairType = "MOBILE_SCREEN_REPAIR";
+	public MobileScreenReplacement(DeviceBuilder builder) {
+		super(builder);
 	}
 }

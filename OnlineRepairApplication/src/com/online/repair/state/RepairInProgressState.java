@@ -28,4 +28,11 @@ public class RepairInProgressState implements RepairState {
 		System.out.println("Device repair is in progress, cannot complete");
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("RepairInProgressState");
+		return builder.toString();
+	}
+
 }

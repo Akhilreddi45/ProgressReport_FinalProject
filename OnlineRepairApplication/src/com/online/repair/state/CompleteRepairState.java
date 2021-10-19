@@ -29,4 +29,12 @@ public class CompleteRepairState implements RepairState {
 		device.setState(null);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("CompleteRepairState");
+		return builder.toString();
+	}
+
+	
 }
