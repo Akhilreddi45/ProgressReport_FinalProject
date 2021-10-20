@@ -2,11 +2,11 @@ package com.online.repair.state;
 
 import com.online.repair.model.Device;
 
-public class RepairInProgressState implements RepairState {
+public class PaymentDoneState implements RepairState {
 
 	Device device;
 
-	public RepairInProgressState(Device device) {
+	public PaymentDoneState(Device device) {
 
 		this.device = device;
 	}
@@ -19,26 +19,26 @@ public class RepairInProgressState implements RepairState {
 
 	@Override
 	public void repairInProgress() {
-		System.out.println("Device repair is in progress State");
-		device.setState(device.getPaymentDoneState());
+		System.out.println("Device repair completed state");
+
 	}
 
 	@Override
 	public void completeRepair() {
-		System.out.println("Device repair is in progress, cannot complete");
+		System.out.println("Device repair payment pending, cannot complete");
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("RepairInProgressState");
+		builder.append("PaymentDoneState");
 		return builder.toString();
 	}
 
 	@Override
 	public void paymentDone() {
-		System.out.println("Device repair is in progress, cannot done payment");
-		
+		System.out.println("Device repair done payment");
+		device.setState(device.getCompleteRepairState());
 	}
 
 }

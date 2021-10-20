@@ -5,6 +5,8 @@ public interface RepairState {
 	public void startRepair();
 
 	public void repairInProgress();
+	
+	public void paymentDone();
 
 	public void completeRepair();
 }

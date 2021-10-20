@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.online.repair.builder.DeviceBuilder;
 import com.online.repair.state.CompleteRepairState;
+import com.online.repair.state.PaymentDoneState;
 import com.online.repair.state.RepairInProgressState;
 import com.online.repair.state.RepairState;
 import com.online.repair.state.StartRepairState;
@@ -22,6 +23,7 @@ public abstract class Device {
 	RepairState state;
 	RepairState startRepairState;
 	RepairState repairInProgressState;
+	RepairState paymentDoneState;
 	RepairState completeRepairState;
 
 	public Device(DeviceBuilder builder) {
@@ -33,6 +35,7 @@ public abstract class Device {
 		this.estimatedDeliveryDate = builder.getEstimatedDeliveryDate();
 		this.startRepairState = new StartRepairState(this);
 		this.repairInProgressState = new RepairInProgressState(this);
+		this.paymentDoneState = new PaymentDoneState(this);
 		this.completeRepairState = new CompleteRepairState(this);
 		this.state = startRepairState;
 	}
@@ -117,12 +120,24 @@ public abstract class Device {
 		this.completeRepairState = completeRepairState;
 	}
 
+	public RepairState getPaymentDoneState() {
+		return paymentDoneState;
+	}
+
+	public void setPaymentDoneState(RepairState paymentDoneState) {
+		this.paymentDoneState = paymentDoneState;
+	}
+
 	public void startRepair() {
 		state.startRepair();
 	}
 
 	public void repairInProgress() {
 		state.repairInProgress();
+	}
+
+	public void paymentDone() {
+		state.paymentDone();
 	}
 
 	public void completeRepair() {

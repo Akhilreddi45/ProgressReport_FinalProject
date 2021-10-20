@@ -36,5 +36,12 @@ public class CompleteRepairState implements RepairState {
 		return builder.toString();
 	}
 
+	@Override
+	public void paymentDone() {
+		System.out.println("Device Repair is yet to complete");
+
+		
+	}
+
 	
 }

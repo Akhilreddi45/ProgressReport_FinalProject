@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import com.online.repair.builder.DeviceBuilder;
 import com.online.repair.model.MobileAudioRepair;
 
-class StartRepairCommandTest {
+class PaymentDoneCommandTest {
 
 	@Test
 	void testExecute() {
@@ -17,9 +17,11 @@ class StartRepairCommandTest {
 		builder = builder.addDevice("MOBILE").addRepairType("MOBILE_AUDIO_REPAIR").addCustomerName("Test1")
 				.addContactDetails("TX").addTransactionDate(new Date()).addEstimatedDeliveryDate(new Date());
 		MobileAudioRepair expectedDevice = new MobileAudioRepair(builder);
-		StartRepairCommand command = new StartRepairCommand(expectedDevice);
+		expectedDevice.startRepair();
+		expectedDevice.repairInProgress();
+		PaymentDoneCommand command = new PaymentDoneCommand(expectedDevice);
 		String state = command.execute();
-		Assert.assertEquals("Start_Repair_State", state);
+		Assert.assertEquals("Payment_Done_State", state);
 	}
 
 }

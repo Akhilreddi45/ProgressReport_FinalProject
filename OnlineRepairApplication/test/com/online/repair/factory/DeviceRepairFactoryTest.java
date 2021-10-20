@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 
 import com.online.repair.builder.DeviceBuilder;
 import com.online.repair.model.Device;
-import com.online.repair.model.mobile.MobileAudioRepair;
-import com.online.repair.model.mobile.MobileCameraRepair;
-import com.online.repair.model.mobile.MobileScreenReplacement;
-import com.online.repair.model.tv.TVDisplayRepair;
-import com.online.repair.model.tv.TVMotherboardRepair;
-import com.online.repair.model.tv.TVSpeakerRepair;
+import com.online.repair.model.MobileAudioRepair;
+import com.online.repair.model.MobileCameraRepair;
+import com.online.repair.model.MobileScreenReplacement;
+import com.online.repair.model.TVDisplayRepair;
+import com.online.repair.model.TVMotherboardRepair;
+import com.online.repair.model.TVSpeakerRepair;
 
 class DeviceRepairFactoryTest {
 
