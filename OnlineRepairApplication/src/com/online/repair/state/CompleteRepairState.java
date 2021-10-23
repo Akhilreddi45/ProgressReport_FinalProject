@@ -26,6 +26,7 @@ public class CompleteRepairState implements RepairState {
 	@Override
 	public void completeRepair() {
 		System.out.println("Device repair is Completed");
+		System.out.println("Your device is ready for Pickup");
 		device.setState(null);
 	}
 

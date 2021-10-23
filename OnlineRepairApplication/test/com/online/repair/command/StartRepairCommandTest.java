@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import com.online.repair.builder.DeviceBuilder;
-import com.online.repair.model.MobileAudioRepair;
+import com.online.repair.model.mobile.MobileAudioRepair;
 
 class StartRepairCommandTest {
 

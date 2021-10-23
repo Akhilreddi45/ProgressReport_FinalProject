@@ -17,11 +17,9 @@ public class OnlineRepairApplication {
 
 	public static void main(String[] args) {
 
-		System.out.printf("##############################################################\n");
-		System.out.printf("#                                                            #\n");
-		System.out.printf("#       WELCOME TO ONLINE REPAIR APPLICATION                 #\n");
-		System.out.printf("#                                                            #\n");
-		System.out.printf("##############################################################\n");
+		System.out.printf("\n");
+		System.out.printf("            WELCOME TO ONLINE REPAIR SHOP SERVICES                \n");
+		System.out.printf("\n");
 
 		Scanner scanner = new Scanner(System.in);
 		List<Device> devices = new ArrayList<>();
@@ -130,6 +128,11 @@ public class OnlineRepairApplication {
 				break;
 			case 3:
 				int deviceId = Integer.MIN_VALUE;
+				int id = 0;
+				for (Device device : devices) {
+					System.out.println("deviceId " + id + " " + device);
+					id++;
+				}
 				do {
 					if (devices.size() == 0) {
 						break;
@@ -155,12 +158,13 @@ public class OnlineRepairApplication {
 				}
 				break;
 			case 4:
-				int id = 0;
+			id = 0;
 				if (devices.size() == 0) {
 					System.out.println(" No Devices available for Repair");
 				}
 				for (Device device : devices) {
 					System.out.println("deviceId " + id + " " + device);
+					System.out.println("WARNING-Please Complete the Payment");
 					id++;
 				}
 				break;
@@ -178,8 +182,9 @@ public class OnlineRepairApplication {
 
 		} while (true);
 
-		System.out.println("THANK YOU FOR USING THE ONLINE REPAIR APPLICATION");
+		System.out.println("THANK YOU FOR USING THE ONLINE REPAIR SHOP SERVICES");
 
 	}
 
 }
+
